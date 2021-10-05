@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Models\Category;
 use App\Models\post;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,10 +68,5 @@ Route::get('/categories', function () {
     
 });
 
-// Route::get('/authors/{author:username}', function(User $author){
-//     return view('posts', [
-//         'title' => "Post by Author : $author->name",
-//         'active' => "Post by Author : $author->name",
-//         'posts' => $author->posts->load('category', 'author')
-//     ]);
-// });
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
